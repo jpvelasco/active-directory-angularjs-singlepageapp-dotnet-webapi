@@ -1,5 +1,5 @@
 ﻿'use strict';
-angular.module('todoApp', ['ngRoute','AdalAngular'])
+angular.module('todoApp', ['ngRoute', 'AdalAngular'])
 .config(['$routeProvider', '$httpProvider', 'adalAuthenticationServiceProvider', function ($routeProvider, $httpProvider, adalProvider) {
 
     $routeProvider.when("/Home", {
@@ -20,16 +20,17 @@ angular.module('todoApp', ['ngRoute','AdalAngular'])
 
     var endpoints = {
 
-        // Map the location of a request to an API to a the identifier of the associated resource
-        "Enter the root location of your To Go API here, e.g. https://contosotogo.azurewebsites.net/":
-            "Enter the App ID URI of your To Go API here, e.g. https://contoso.onmicrosoft.com/ToGoAPI",
+        // TODO: Map the location of a request to an API to the identifier of the associated resource
+        "https://YourAzureADTenant.azurewebsites.net/": "14e931b6-0fee-4f56-84a2-93b31fadbf32",
+
+
     };
 
     adalProvider.init(
         {
             instance: 'https://login.microsoftonline.com/',
-            tenant: 'Enter your tenant name here e.g. contoso.onmicrosoft.com',
-            clientId: 'Enter your client ID here e.g. e9a5a8b6-8af7-4719-9821-0deef255f68e',
+            tenant: 'YourAzureADTenant.onmicrosoft.com', // TODO: Update your tenant name
+            clientId: '14e931b6-0fee-4f56-84a2-93b31fadbf32', // TODO: Update with the indentifier for your SPA registration in Azure AD
             extraQueryParameter: 'nux=1',
             endpoints: endpoints,
             //cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not work for localhost.  
@@ -37,5 +38,5 @@ angular.module('todoApp', ['ngRoute','AdalAngular'])
         },
         $httpProvider
         );
-   
+
 }]);

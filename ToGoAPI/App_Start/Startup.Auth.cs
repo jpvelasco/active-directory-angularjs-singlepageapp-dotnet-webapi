@@ -5,6 +5,7 @@ using Owin;
 using Microsoft.Owin.Security.ActiveDirectory;
 using System.Configuration;
 using System.Security.Claims;
+using Microsoft.Owin.Cors;
 
 namespace ToGoAPI
 {
@@ -18,6 +19,10 @@ namespace ToGoAPI
                     Audience = ConfigurationManager.AppSettings["ida:Audience"],
                     Tenant = ConfigurationManager.AppSettings["ida:Tenant"],
                 });
+
+            // NOTE: Allowing calls from all origins, for sample applicaiton purposes only.
+            app.UseCors(CorsOptions.AllowAll);
+
         }
 
     }
