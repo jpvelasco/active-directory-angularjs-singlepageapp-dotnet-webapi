@@ -8,7 +8,7 @@ using TodoSPA.Controllers;
 
 namespace TodoSPA.DAL
 {
-    public class TodoListServiceContext: DbContext
+    public class TodoListServiceContext : DbContext
     {
         public TodoListServiceContext()
             : base("TodoListServiceContext")

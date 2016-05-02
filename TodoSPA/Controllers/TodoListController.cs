@@ -28,17 +28,17 @@ namespace TodoSPA.Controllers
         public Todo Get(int id)
         {
             string owner = ClaimsPrincipal.Current.FindFirst(ClaimTypes.NameIdentifier).Value;
-            Todo todo = db.Todoes.First(a => a.Owner == owner && a.ID == id);             
+            Todo todo = db.Todoes.First(a => a.Owner == owner && a.ID == id);
             return todo;
         }
 
         // POST: api/TodoList
         public void Post(Todo todo)
         {
-            string owner = ClaimsPrincipal.Current.FindFirst(ClaimTypes.NameIdentifier).Value;            
+            string owner = ClaimsPrincipal.Current.FindFirst(ClaimTypes.NameIdentifier).Value;
             todo.Owner = owner;
             db.Todoes.Add(todo);
-            db.SaveChanges();            
+            db.SaveChanges();
         }
 
         public void Put(Todo todo)
@@ -62,6 +62,6 @@ namespace TodoSPA.Controllers
                 db.Todoes.Remove(todo);
                 db.SaveChanges();
             }
-        }        
+        }
     }
 }

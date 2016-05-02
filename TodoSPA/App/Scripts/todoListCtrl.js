@@ -13,7 +13,7 @@ angular.module('todoApp')
         ID: 0
     };
 
-    
+
 
     $scope.editSwitch = function (todo) {
         todo.edit = !todo.edit;
